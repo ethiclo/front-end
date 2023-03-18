@@ -15,7 +15,7 @@ export default function ProductCard({ product, onClick = null, ...props }) {
         />
       ) : null}
       <div
-        className="w-full rounded-md shadow-md border-2"
+        className="w-full rounded-md shadow-md border-2 hover:cursor-pointer hover:opacity-70 transition-opacity"
         onClick={onClick}
         {...props}
       >
