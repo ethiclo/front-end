@@ -2,7 +2,7 @@ export default function Searchbar({ className = "", ...props }) {
   return (
     <div
       className={
-        "px-2 py-2 border-b-2 text-lg focus-within:border-primary transition-colors " +
+        "px-2 py-2 w-full border-b-2 text-lg focus-within:border-primary transition-colors " +
         className
       }
       {...props}

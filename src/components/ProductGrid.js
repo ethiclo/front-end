@@ -2,7 +2,10 @@ import ProductCard from "./ProductCard";
 
 export default function ProductGrid({ products, setCurrentProduct, ...props }) {
   return (
-    <div className="bg-orange-400" {...props}>
+    <div
+      className="grid w-full grid-cols-2 justify-center gap-4 sm:grid-cols-[repeat(auto-fit,260px)]"
+      {...props}
+    >
       {products?.map((product) => (
         <ProductCard
           key={product.id}
