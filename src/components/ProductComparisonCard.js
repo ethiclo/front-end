@@ -7,21 +7,20 @@ export default function ProductComparableCard(props) {
         <div className="flex">
             <img src={productComparable.image}>
             </img>
-            <div>
-                <h1>{productComparable.title}</h1>
-                <p class="text-grey">{productComparable.brand} | {productComparable.price}</p>
-                <p>{productComparable.brand}</p>
+            <div class="flex-col ">
+                <h1 class="text-black">{productComparable.title}</h1>
+                <p class="text-neutral-500">{productComparable.brand} | {productComparable.price}</p>
+                <p class="text-black">{productComparable.brand}</p>
                 <div>
-                    <p>Sustainability Score:</p>
+                    <p class="text-black">Sustainability Score:</p>
                     <ScoreComponent props={productComparable.score} />
                 </div>
-
             </div>
         </div>
     )
 }
 
-export default function ScoreComponent(props) {
+export function ScoreComponent(props) {
     const score = props
 
     const backgroundColorGenerator = (score) => {

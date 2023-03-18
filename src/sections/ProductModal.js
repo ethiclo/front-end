@@ -14,17 +14,17 @@ export default function ProductModal(props) {
 
     return (
         <div>
-            <div class="flex ">
+            <div class="flex">
                 <img src={mainProduct.image}>
                 </img>
-                <div>
+                <div class="flex-col">
                     {comparables.map((comparable) => {
                         return <ProductComparisonCard product={comparable}></ProductComparisonCard>
                     })}
                 </div>
             </div>
             <div>
-                <button onClick={closeModal}>
+                <button class="rounded-none bg-sky-500 hover:bg-sky-700" onClick={closeModal}>
                     Close
                 </button>
             </div>
