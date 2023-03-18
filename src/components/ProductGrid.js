@@ -1,14 +1,21 @@
 import ProductCard from "./ProductCard";
 
-export default function ProductGrid({ products, ...props }) {
+export default function ProductGrid({
+  products,
+  setCurrentProduct,
+  setProductModalOpened,
+  ...props
+}) {
   return (
     <div className="bg-orange-400" {...props}>
       {products?.map((product) => (
         <ProductCard
           key={product.id}
-          title={product.title}
-          imgSrc={product.img_src}
-          score={product.score}
+          product={product}
+          onClick={() => {
+            setCurrentProduct(product);
+            setProductModalOpened(true);
+          }}
         />
       ))}
     </div>
