@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard";
 
 export default function ProductGrid({ products, ...props }) {
   return (
-    <div className="bg-orange-400">
+    <div className="bg-orange-400" {...props}>
       {products?.map((product) => (
         <ProductCard
           key={product.id}

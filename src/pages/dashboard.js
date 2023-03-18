@@ -6,7 +6,7 @@ import { dummyProducts } from "@/constants/dummy";
 import Head from "next/head";
 
 export default function Dashboard() {
-  const products = dummyProducts;
+  const products = dummyProducts; // change to fetch
 
   return (
     <>
