@@ -11,7 +11,6 @@ import { useState } from "react";
 export default function Dashboard() {
   const [currentProduct, setCurrentProduct] = useState(null); // product object
   const [addPopupOpened, setAddPopupOpened] = useState(false);
-  const [productModalOpened, setProductModalOpened] = useState(false);
 
   const products = dummyProducts; // change to fetch
 
@@ -24,10 +23,10 @@ export default function Dashboard() {
         {addPopupOpened ? (
           <AddProductPopup setPopupOpened={setAddPopupOpened} />
         ) : null}
-        {currentProduct && productModalOpened ? (
+        {currentProduct ? (
           <ProductModal
             product={currentProduct}
-            setModalOpen={setProductModalOpened}
+            setCurrentProduct={setCurrentProduct}
           />
         ) : null}
         <Header />
@@ -36,7 +35,6 @@ export default function Dashboard() {
           <AddProductButton onClick={() => setAddPopupOpened(true)} />
           <ProductGrid
             setCurrentProduct={setCurrentProduct}
-            setProductModalOpened={setProductModalOpened}
             products={products}
           />
         </main>

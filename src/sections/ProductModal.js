@@ -4,12 +4,12 @@ import Image from "next/image";
 import React from "react";
 
 export default function ProductModal(props) {
-  const setModalOpened = props.setModalOpen;
+  const setCurrentProduct = props.setCurrentProduct;
   const mainProduct = props.product;
   const comparables = dummyProducts;
 
   function closeModal() {
-    setModalOpened(false);
+    setCurrentProduct(null);
   }
 
   return (
