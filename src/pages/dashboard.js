@@ -31,8 +31,10 @@ export default function Dashboard() {
       <div>
         <Header />
         <main className="px-4 py-4">
-          <Searchbar className="mb-4" />
-          <AddProductButton onClick={() => setAddPopupOpened(true)} />
+          <div className="flex justify-between mb-4">
+            <Searchbar className="mr-4" />
+            <AddProductButton onClick={() => setAddPopupOpened(true)} />
+          </div>
           <ProductGrid
             setCurrentProduct={setCurrentProduct}
             products={products}

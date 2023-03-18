@@ -8,10 +8,10 @@ export default function Header({ ...props }) {
       className="border-b-2 flex justify-between items-center pr-4"
       {...props}
     >
-      <Link href="/" className="hover:opacity-60 transition-opacity">
+      <Link href="/" className="hover:opacity-70 transition-opacity">
         <Image src={logoImg} alt="Ethiclo logo" className="w-20" />
       </Link>
-      <div className="rounded-full bg-primary w-10 h-10" />
+      <div className="rounded-full bg-gray-200 w-10 h-10" />
     </header>
   );
 }
