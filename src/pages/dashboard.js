@@ -28,7 +28,7 @@ export default function Dashboard() {
           setCurrentProduct={setCurrentProduct}
         />
       ) : null}
-      <div>
+      <div className={currentProduct ? "overflow-hidden h-screen" : ""}>
         <Header />
         <main className="px-4 py-4">
           <div className="flex justify-between mb-4">
