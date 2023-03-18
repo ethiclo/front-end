@@ -4,10 +4,10 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        "half-screen-height": '50vh'
+        "half-screen-height": "50vh",
       },
       colors: {
-        "black-transparent": "#000000aa",
+        "black-transparent": "#000000cc",
         primary: "#638870",
       },
     },
