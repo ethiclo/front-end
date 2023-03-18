@@ -19,7 +19,7 @@ export default function ProductModal(props) {
                 </img>
                 <div class="flex-col">
                     {comparables.map((comparable) => {
-                        return <ProductComparisonCard product={comparable}></ProductComparisonCard>
+                        return <ProductComparisonCard key={comparable.id} product={comparable}></ProductComparisonCard>
                     })}
                 </div>
             </div>
