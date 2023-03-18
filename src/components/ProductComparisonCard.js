@@ -13,10 +13,9 @@ export default function ProductComparableCard(props) {
             </div>
       <div className="flex-col w-full">
         <h1 className="text-black font-bold">{productComparable.title}</h1>
-        <p className="text-neutral-500 text-base">
+        <p className="text-neutral-500 text-base mb-4">
           {productComparable.brand} | {productComparable.price}
         </p>
-        <p className="text-black">{productComparable.brand}</p>
         <div className="flex">
           <p className="text-black mr-4">Sustainability Score:</p>
           <ScoreComponent score={productComparable.score} />
