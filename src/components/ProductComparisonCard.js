@@ -1,11 +1,12 @@
 import React from "react";
+import Image from "next/image";
 
 export default function ProductComparableCard(props) {
   const productComparable = props.product;
 
   return (
     <div className="flex border-4">
-      <img src={productComparable.img_url} />
+      <Image src={productComparable.img_src} width="80" height="25" />
       <div className="flex-col ">
         <h1 className="text-black">{productComparable.title}</h1>
         <p className="text-neutral-500">
