@@ -19,19 +19,19 @@ export default function Dashboard() {
       <Head>
         <title>Ethiclo | Dashboard</title>
       </Head>
+      {addPopupOpened ? (
+        <AddProductPopup setPopupOpened={setAddPopupOpened} />
+      ) : null}
+      {currentProduct ? (
+        <ProductModal
+          product={currentProduct}
+          setCurrentProduct={setCurrentProduct}
+        />
+      ) : null}
       <div>
-        {addPopupOpened ? (
-          <AddProductPopup setPopupOpened={setAddPopupOpened} />
-        ) : null}
-        {currentProduct ? (
-          <ProductModal
-            product={currentProduct}
-            setCurrentProduct={setCurrentProduct}
-          />
-        ) : null}
         <Header />
-        <main>
-          <Searchbar />
+        <main className="px-4 py-4">
+          <Searchbar className="mb-4" />
           <AddProductButton onClick={() => setAddPopupOpened(true)} />
           <ProductGrid
             setCurrentProduct={setCurrentProduct}
