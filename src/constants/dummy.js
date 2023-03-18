@@ -15,7 +15,7 @@ export const dummyProducts = [
     id: 2,
     url: "https://swimbyshea.com",
     img_src:
-      "https://aritzia.scene7.com/is/image/Aritzia/s23_02_a08_107450_11420_on_a?wid=1500",
+      "https://www.shutterstock.com/image-vector/vector-single-cartoon-illustration-denim-260nw-1171726540.jpg",
     title: "Super Dope Bikini",
     brand: "Swim By Shea",
     description:
