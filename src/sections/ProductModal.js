@@ -19,12 +19,12 @@ export default function ProductModal(props) {
     >
       <div className="bg-white h-full w-full md:w-3/4" onClick={(e) => e.stopPropagation()}>
         <div className="grid grid-cols-2 h-full">
-          <div className="w-full h-full relative">
+          <div className="w-full h-80 relative">
             <Image
               src={mainProduct.img_src}
               alt=""
-              className="object-contain"
-              fill
+                className="h-half-screen-height w-40"
+                fill
             />
           </div>
           <div className="flex-col h-full overflow-auto mb-2">

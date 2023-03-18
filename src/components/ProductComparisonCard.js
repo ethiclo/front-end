@@ -5,12 +5,12 @@ export default function ProductComparableCard(props) {
   const productComparable = props.product;
 
   return (
+    <a target="_blank" href={productComparable.url} className="h-full">
     <div className="flex border-2 rounded-lg mb-3 h-40 shadow-md items-center ml-3 mr-3" >
-        <a target="_blank" href={productComparable.url} className="h-full">
+        
             <div className="ml-2 mr-2 h-full relative w-28">
                 <Image src={productComparable.img_src} fill className="object-cover" />
             </div>
-        </a>
       <div className="flex-col w-full">
         <h1 className="text-black font-bold">{productComparable.title}</h1>
         <p className="text-neutral-500 text-base">
@@ -22,7 +22,9 @@ export default function ProductComparableCard(props) {
           <ScoreComponent score={productComparable.score} />
         </div>
       </div>
+      
     </div>
+    </a>
   );
 }
 
