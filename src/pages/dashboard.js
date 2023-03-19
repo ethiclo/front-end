@@ -18,11 +18,13 @@ export default function Dashboard() {
 
   const products = dummyProducts; // change to fetch
 
-  if (typeof window == undefined || loading) return <div>Loading...</div>;
-  else if (!session) {
-    // router.push("/login");
-    return <div>Unauthorized access. Redirecting to login page...</div>;
-  }
+  useEffect(() => {
+    if (!loading && !session) {
+      router.push("/login");
+    }
+  }, [router, loading, session]);
+
+  if (loading || !session) return <div>Loading...</div>;
   return (
     <>
       <Head>

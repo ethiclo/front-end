@@ -8,7 +8,6 @@ export default function Header({ ...props }) {
   const router = useRouter();
   const logout = () => {
     signOut();
-    router.push("/login");
   };
   return (
     <header
