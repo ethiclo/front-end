@@ -6,13 +6,23 @@ import { dummyProducts } from "@/constants/dummy";
 import AddProductPopup from "@/sections/AddProductPopup";
 import ProductModal from "@/sections/ProductModal";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Dashboard() {
   const [currentProduct, setCurrentProduct] = useState(null); // product object
   const [addPopupOpened, setAddPopupOpened] = useState(false);
 
   const products = dummyProducts; // change to fetch
+
+  useEffect(() => {
+    async function test() {
+      await fetch(
+        "ml-production-3fc0.up.railway.app/add_shopper/ramsayrayce@gmail.com",
+        { method: "POST" }
+      );
+    }
+    test();
+  }, []);
 
   return (
     <>
