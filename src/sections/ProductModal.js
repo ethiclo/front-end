@@ -4,11 +4,24 @@ import ProductComparisonCard, {
 import { dummyProducts } from "@/constants/dummy";
 import Image from "next/image";
 import React from "react";
+import { useEffect } from "react/cjs/react.production.min";
 
 export default function ProductModal(props) {
   const setCurrentProduct = props.setCurrentProduct;
   const mainProduct = props.product;
   const comparables = dummyProducts;
+
+  // useEffect (() => {
+  //   async function getData() {
+  //     const payload = {email: sessionStorage.user.email}
+  //     const resp = await fetch(
+  //       "http://localhost:3000/get_sustainable_products",  
+
+  //   }
+  //   if (!data && !error && !loading) {
+  //     getData()
+  //   }
+  // })
 
   function closeModal() {
     setCurrentProduct(null);
