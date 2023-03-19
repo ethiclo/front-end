@@ -6,23 +6,25 @@ export default function ProductComparableCard(props) {
 
   return (
     <a target="_blank" href={productComparable.url} className="h-full">
-    <div className="flex border-2 rounded-lg mb-3 h-40 shadow-md items-center ml-3 mr-3" >
-        
-            <div className="ml-2 mr-2 h-full relative w-28">
-                <Image src={productComparable.img_src} fill className="object-cover" />
-            </div>
-      <div className="flex-col w-full">
-        <h1 className="text-black font-bold">{productComparable.title}</h1>
-        <p className="text-neutral-500 text-base mb-4">
-          {productComparable.brand} | {productComparable.price}
-        </p>
-        <div className="flex">
-          <p className="text-black mr-4">Sustainability Score:</p>
-          <ScoreComponent score={productComparable.score} />
+      <div className="flex border-2 rounded-lg h-40 shadow-md items-center mb-4">
+        <div className="rounded-l-md mr-4 h-full relative w-28">
+          <Image
+            src={productComparable.img_src}
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="flex-col w-full">
+          <h1 className="text-black font-bold">{productComparable.title}</h1>
+          <p className="text-neutral-500 text-base mb-4">
+            {productComparable.brand} | {productComparable.price}
+          </p>
+          <div className="flex">
+            <p className="text-black mr-4">Sustainability Score:</p>
+            <ScoreComponent score={productComparable.score} />
+          </div>
         </div>
       </div>
-      
-    </div>
     </a>
   );
 }

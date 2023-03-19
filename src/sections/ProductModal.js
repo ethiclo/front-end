@@ -1,4 +1,6 @@
-import ProductComparisonCard, { ScoreComponent } from "@/components/ProductComparisonCard";
+import ProductComparisonCard, {
+  ScoreComponent,
+} from "@/components/ProductComparisonCard";
 import { dummyProducts } from "@/constants/dummy";
 import Image from "next/image";
 import React from "react";
@@ -18,11 +20,11 @@ export default function ProductModal(props) {
       onClick={closeModal}
     >
       <div
-        className="bg-white h-full w-full md:w-2/3"
+        className="bg-white h-full overflow-auto w-full md:w-2/3"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="grid gap-2 grid-cols-[minmax(0,2fr),minmax(0,3fr)] h-full">
-          <div className="overflow-auto">
+        <div className="grid gap-2 grid-cols-1 md:grid-cols-[minmax(0,2fr),minmax(0,3fr)] md:h-full">
+          <div className="px-4 md:px-0 md:overflow-auto md:border-r-2">
             <div className="h-0 pt-[150%] w-full relative">
               <Image
                 src={mainProduct.img_src}
@@ -31,18 +33,22 @@ export default function ProductModal(props) {
                 fill
               />
             </div>
-            <div className="pl-5">
-            <h1 className="text-2xl text-black mb-2 pt-5 font-bold pb-1">{mainProduct.title}</h1>
-            <h1 className="text-xl ml-1  pb-2 text-gray-400">{mainProduct.brand} | {mainProduct.price}</h1>
-            <p className="ml-1 mb-4 ">{mainProduct.description}</p>
-            <div className="flex mb-4">
+            <div className="px-4">
+              <h1 className="text-2xl text-black mb-2 pt-5 font-bold pb-1">
+                {mainProduct.title}
+              </h1>
+              <h1 className="text-xl ml-1 pb-2 text-gray-400">
+                {mainProduct.brand} | {mainProduct.price}
+              </h1>
+              <p className="ml-1 mb-4">{mainProduct.description}</p>
+              <div className="flex mb-4">
                 <p className="mr-3 font-bold">Sustainability Score:</p>
                 <ScoreComponent score={mainProduct.score} />
-            </div>
+              </div>
             </div>
           </div>
-          <div className="flex-col h-full overflow-auto mb-2">
-            <h1 className="text-3xl text-black mb-2 text-center p-5">
+          <div className="flex-col md:h-full md:overflow-auto px-4 py-8 border-t-2 md:border-t-0">
+            <h1 className="text-3xl text-black text-center mb-8">
               More Sustainable Options...
             </h1>
             {comparables.map((comparable) => (
