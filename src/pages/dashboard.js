@@ -12,7 +12,7 @@ import { useSession, signOut } from "next-auth/react";
 export default function Dashboard() {
   const [currentProduct, setCurrentProduct] = useState(null); // product object
   const [addPopupOpened, setAddPopupOpened] = useState(false);
-  const [session, loading] = useSession();
+  const { data: session, loading } = useSession();
 
   const products = dummyProducts; // change to fetch
 
