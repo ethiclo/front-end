@@ -10,7 +10,7 @@ import { authOptions } from "./api/auth/[...nextauth]";
 
 function Login({ providers }) {
   const router = useRouter()
-  const { loginError } = router.query;
+  const { error } = router.query;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -36,7 +36,7 @@ function Login({ providers }) {
                 </div>
               ))}
             </div>
-            {loginError ? <p className="text-red-600 mt-2">Login Error, please try again</p> : null}
+            {error ? <p className="text-red-600 mt-2">Login Error, please try again</p> : null}
           </div>
         </div>
       </div>
