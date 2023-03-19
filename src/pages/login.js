@@ -11,7 +11,6 @@ import { authOptions } from "./api/auth/[...nextauth]";
 function Login({ providers }) {
   const router = useRouter()
   const { loginError } = router.query;
-  console.log(keyword)
 
   return (
     <div className="min-h-screen flex flex-col">
