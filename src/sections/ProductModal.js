@@ -7,7 +7,7 @@ import { dummyProducts } from "@/constants/dummy";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import React, { useState } from "react";
-import { useEffect } from "react/cjs/react.production.min";
+import { useEffect } from "react";
 
 export default function ProductModal(props) {
   const setCurrentProduct = props.setCurrentProduct;
