@@ -24,15 +24,15 @@ export default function Dashboard() {
     }
   }, [router, loading, session]);
 
-  const [products, setProducts] = useState(null); // change to fetch
+  const [products, setProducts] = useState([]); // change to fetch
   const [fetchState, setFetchState] = useState("init");
   const [error, setError] = useState("");
   useEffect(() => {
     async function getData() {
       setFetchState("loading");
 
-      // const endpoint = "http://localhost:3000/get_my_products";
-      const endpoint = "https://api.swimbyshea.com/";
+      const endpoint = "http://localhost:3000/get_my_products";
+      // const endpoint = "https://api.swimbyshea.com/";
       const payload = { email: session?.user?.email };
       const resp = await fetch(endpoint, {
         body: JSON.stringify(payload),

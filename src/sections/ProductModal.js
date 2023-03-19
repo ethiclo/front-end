@@ -1,27 +1,49 @@
+import ErrorMessage from "@/components/ErrorMessage";
+import Loading from "@/components/Loading";
 import ProductComparisonCard, {
   ScoreComponent,
 } from "@/components/ProductComparisonCard";
 import { dummyProducts } from "@/constants/dummy";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react/cjs/react.production.min";
 
 export default function ProductModal(props) {
   const setCurrentProduct = props.setCurrentProduct;
   const mainProduct = props.product;
-  const comparables = dummyProducts;
 
-  // useEffect (() => {
-  //   async function getData() {
-  //     const payload = {email: sessionStorage.user.email}
-  //     const resp = await fetch(
-  //       "http://localhost:3000/get_sustainable_products",  
+  const { data: session, loading } = useSession();
+  const [comparables, setComparables] = useState([]);
+  const [fetchState, setFetchState] = useState("init");
+  const [error, setError] = useState("");
+  useEffect(() => {
+    async function getData() {
+      setFetchState("loading");
 
-  //   }
-  //   if (!data && !error && !loading) {
-  //     getData()
-  //   }
-  // })
+      const endpoint = "http://localhost:3000/get_sustainable_products";
+      // const endpoint = "https://api.swimbyshea.com/";
+      const payload = { email: session?.user?.email, url: mainProduct.url };
+      const resp = await fetch(endpoint, {
+        body: JSON.stringify(payload),
+        method: "POST",
+      });
+
+      if (!resp.ok) {
+        setError("An error has occured. Please try again later.");
+        setFetchState("complete");
+        return;
+      }
+
+      const json = await resp.json();
+      setComparables(json);
+      setFetchState("complete");
+    }
+
+    if (fetchState == "init" && !loading) {
+      getData();
+    }
+  }, [fetchState, loading, mainProduct.url, session?.user?.email]);
 
   function closeModal() {
     setCurrentProduct(null);
@@ -61,16 +83,24 @@ export default function ProductModal(props) {
             </div>
           </div>
           <div className="flex-col md:h-full md:overflow-auto px-4 py-8 border-t-2 md:border-t-0">
-            <h1 className="text-3xl text-black text-center mb-8">
-              More Sustainable Options...
-            </h1>
-            {comparables.map((comparable) => (
-              <ProductComparisonCard
-                key={comparable.id}
-                product={comparable}
-                main={mainProduct}
-              />
-            ))}
+            {fetchState == "loading" || fetchState == "init" || loading ? (
+              <Loading />
+            ) : error ? (
+              <ErrorMessage message={error} />
+            ) : (
+              <>
+                <h1 className="text-3xl text-black text-center mb-8">
+                  More Sustainable Options...
+                </h1>
+                {comparables.map((comparable) => (
+                  <ProductComparisonCard
+                    key={comparable.id}
+                    product={comparable}
+                    main={mainProduct}
+                  />
+                ))}
+              </>
+            )}
           </div>
         </div>
         <div>
