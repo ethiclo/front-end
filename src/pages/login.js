@@ -37,7 +37,7 @@ function Login({ providers }) {
                 </div>
               ))}
             </div>
-            {loginError ? <p className="text-red-600">Login Error, please try again</p> : null}
+            {loginError ? <p className="text-red-600 mt-2">Login Error, please try again</p> : null}
           </div>
         </div>
       </div>
