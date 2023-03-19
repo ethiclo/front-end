@@ -3,12 +3,16 @@ import logoImg from "../../public/img/ethiclo-logo.JPEG";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
-
+import { useRouter } from "next/router";
 import { getProviders, signIn } from "next-auth/react";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "./api/auth/[...nextauth]";
 
 function Login({ providers }) {
+  const router = useRouter()
+  const { loginError } = router.query;
+  console.log(keyword)
+
   return (
     <div className="min-h-screen flex flex-col">
       <div className="grid flex-grow grid-cols-2 justify-center items-center">
@@ -32,14 +36,8 @@ function Login({ providers }) {
                   </button>
                 </div>
               ))}
-              {/* <button
-                className="items-center flex bg-primary shadow-md border-black rounded py-6 justify-around text-white hover:opacity-80 px-10"
-                onClick={signIn(provider.id)}
-              >
-                <FontAwesomeIcon className="h-10 mr-3 " icon={faGoogle} />
-                Login with Google
-              </button> */}
             </div>
+            {loginError ? <p className="text-red-600">Login Error, please try again</p> : null}
           </div>
         </div>
       </div>
