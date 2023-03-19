@@ -10,6 +10,7 @@ export default function ProductComparableCard(props) {
         <div className="rounded-l-md mr-4 h-full relative w-28">
           <Image
             src={productComparable.img_src}
+            alt=""
             fill
             className="object-cover"
           />
