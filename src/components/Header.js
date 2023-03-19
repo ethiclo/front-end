@@ -17,10 +17,13 @@ export default function Header({ ...props }) {
       <Link href="/" className="hover:opacity-70 transition-opacity">
         <Image src={logoImg} alt="Ethiclo logo" className="w-20" />
       </Link>
-      <div
-        onClick={() => signOut()}
-        className="rounded-full bg-gray-200 w-10 h-10"
-      />
+      <div>
+        <button onClick={() => signOut()}
+          className="rounded-lg bg-gray-200 w-20 h-10 border-2 border-solid shadow-md ">
+          <p className="text-black hover:text-primary">Log out</p>
+        </button>
+      </div>
+      
     </header>
   );
 }
