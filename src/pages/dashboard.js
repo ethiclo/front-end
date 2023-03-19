@@ -8,16 +8,21 @@ import ProductModal from "@/sections/ProductModal";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Dashboard() {
   const [currentProduct, setCurrentProduct] = useState(null); // product object
   const [addPopupOpened, setAddPopupOpened] = useState(false);
   const { data: session, loading } = useSession();
+  const router = useRouter();
 
   const products = dummyProducts; // change to fetch
 
-  if (loading) return <div>Loading...</div>;
-  else if (!session) return <div>Not allowed!!!</div>;
+  if (typeof window == undefined || loading) return <div>Loading...</div>;
+  else if (!session) {
+    // router.push("/login");
+    return <div>Unauthorized access. Redirecting to login page...</div>;
+  }
   return (
     <>
       <Head>

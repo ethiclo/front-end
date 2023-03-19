@@ -2,8 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import logoImg from "../../public/img/ethiclo-logo.JPEG";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Header({ ...props }) {
+  const router = useRouter();
+  const logout = () => {
+    signOut();
+    router.push("/login");
+  };
   return (
     <header
       className="border-b-2 flex justify-between items-center pr-4"

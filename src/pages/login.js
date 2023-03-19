@@ -9,7 +9,7 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "./api/auth/[...nextauth]";
 
 function Login({ providers }) {
-  const router = useRouter()
+  const router = useRouter();
   const { error } = router.query;
 
   return (
@@ -36,7 +36,11 @@ function Login({ providers }) {
                 </div>
               ))}
             </div>
-            {error ? <p className="text-red-600 mt-2">Login Error, please try again</p> : null}
+            {error ? (
+              <p className="text-red-600 mt-4">
+                There was an error logging you in. Please try again later.
+              </p>
+            ) : null}
           </div>
         </div>
       </div>
