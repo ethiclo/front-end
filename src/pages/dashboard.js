@@ -7,23 +7,17 @@ import AddProductPopup from "@/sections/AddProductPopup";
 import ProductModal from "@/sections/ProductModal";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Dashboard() {
   const [currentProduct, setCurrentProduct] = useState(null); // product object
   const [addPopupOpened, setAddPopupOpened] = useState(false);
+  const [session, loading] = useSession();
 
   const products = dummyProducts; // change to fetch
 
-  useEffect(() => {
-    async function test() {
-      await fetch(
-        "ml-production-3fc0.up.railway.app/add_shopper/ramsayrayce@gmail.com",
-        { method: "POST" }
-      );
-    }
-    test();
-  }, []);
-
+  if (loading) return <div>Loading...</div>;
+  else if (!session) return <div>Not allowed!!!</div>;
   return (
     <>
       <Head>
