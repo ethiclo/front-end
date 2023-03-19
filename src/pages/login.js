@@ -16,7 +16,7 @@ function Login({ providers }) {
     <div className="min-h-screen flex flex-col">
       <div className="grid flex-grow grid-cols-2 justify-center items-center">
         <div className="flex items-center justify-center bg-primary h-full w-full">
-          <Image src="https://feastinteractive.com/wp-content/uploads/2015/01/uoft.jpg" width={500} alt="" />
+          <Image src={logoImg} width={500} alt="" />
         </div>
         <div className="border-black bg-gray-200 flex flex-col h-full w-full justify-center items-center">
           <div className="bg-white px-8 py-8 rounded-lg shadow-md border-2">
