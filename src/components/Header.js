@@ -2,13 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import logoImg from "../../public/img/ethiclo-logo.JPEG";
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/router";
 
 export default function Header({ ...props }) {
-  const router = useRouter();
-  const logout = () => {
-    signOut();
-  };
   return (
     <header
       className="border-b-2 flex justify-between items-center pr-4"
@@ -18,12 +13,13 @@ export default function Header({ ...props }) {
         <Image src={logoImg} alt="Ethiclo logo" className="w-20" />
       </Link>
       <div>
-        <button onClick={() => signOut()}
-          className="rounded-lg bg-gray-200 w-20 h-10 border-2 border-solid shadow-md ">
+        <button
+          onClick={() => signOut()}
+          className="rounded-lg bg-gray-200 w-20 h-10 border-2 border-solid shadow-md "
+        >
           <p className="text-black hover:text-primary">Log out</p>
         </button>
       </div>
-      
     </header>
   );
 }
